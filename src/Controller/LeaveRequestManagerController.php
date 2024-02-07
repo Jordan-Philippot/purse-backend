@@ -30,7 +30,7 @@ class LeaveRequestManagerController extends AbstractController
         $leaveRequestList = $this->leaveRequestManagerRepository->findAll();
         $leaveRequestsToArray = [];
         foreach ($leaveRequestList as $leaveRequest) {
-            array_push($leaveRequestsToArray, $leaveRequest->toArray());
+            array_unshift($leaveRequestsToArray, $leaveRequest->toArray());
         }
 
         return new JsonResponse(['list' => $leaveRequestsToArray]);
